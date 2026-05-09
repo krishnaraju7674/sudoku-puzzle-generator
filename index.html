@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudoku Nova</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <main class="app-shell">
+    <section class="game-panel">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Sudoku Nova</p>
+          <h1>Premium Sudoku Generator</h1>
+        </div>
+        <div class="toggles">
+          <button class="icon-button" id="soundToggle" type="button" aria-label="Toggle sound"
+            title="Toggle sound">S</button>
+          <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle theme"
+            title="Toggle theme">T</button>
+        </div>
+      </header>
+
+      <div class="difficulty-strip" aria-label="Difficulty">
+        <button class="difficulty active" data-difficulty="easy" type="button">Easy</button>
+        <button class="difficulty" data-difficulty="medium" type="button">Medium</button>
+        <button class="difficulty" data-difficulty="hard" type="button">Hard</button>
+        <button class="difficulty" data-difficulty="expert" type="button">Expert</button>
+        <button class="difficulty daily" data-difficulty="daily" type="button">Daily</button>
+      </div>
+
+      <section class="stats-grid" aria-label="Game stats">
+        <article>
+          <span>Timer</span>
+          <strong id="timer">00:00</strong>
+        </article>
+        <article>
+          <span>Score</span>
+          <strong id="score">1000</strong>
+        </article>
+        <article>
+          <span>Mistakes</span>
+          <strong><span id="mistakes">0</span>/5</strong>
+        </article>
+        <article>
+          <span>Progress</span>
+          <strong id="progress">0%</strong>
+        </article>
+      </section>
+
+      <section class="board-wrap" aria-label="Sudoku board area">
+        <div class="board-head">
+          <div>
+            <span id="modeLabel">Classic run</span>
+            <strong id="difficultyLabel">Easy</strong>
+          </div>
+          <div class="streak-pill">
+            <span>Streak</span>
+            <strong id="streak">0</strong>
+          </div>
+        </div>
+        <div class="sudoku-board" id="board" role="grid" aria-label="Sudoku puzzle"></div>
+        <div class="progress-rail" aria-hidden="true">
+          <span id="progressBar"></span>
+        </div>
+      </section>
+    </section>
+
+    <aside class="control-panel">
+      <section class="control-card">
+        <h2>Actions</h2>
+        <div class="action-grid">
+          <button id="newGame" type="button">New Puzzle</button>
+          <button id="checkGame" type="button">Check</button>
+          <button id="hintGame" type="button">Hint</button>
+          <button id="undoGame" type="button">Undo</button>
+          <button id="resetGame" type="button">Reset</button>
+          <button id="solveGame" type="button">Solve</button>
+        </div>
+      </section>
+
+      <section class="control-card">
+        <div class="mode-row">
+          <h2>Number Pad</h2>
+          <button class="note-toggle" id="noteToggle" type="button" aria-pressed="false">Notes</button>
+        </div>
+        <div class="number-pad" id="numberPad" aria-label="Number pad"></div>
+        <button class="erase-button" id="eraseCell" type="button">Erase Cell</button>
+      </section>
+
+      <section class="control-card compact">
+        <h2>Records</h2>
+        <div class="record-list" id="records"></div>
+      </section>
+
+      <section class="shortcut-card">
+        <span>Keys</span>
+        <p>1-9 enter numbers, N toggles notes, Backspace erases, H gives a hint, U undoes.</p>
+      </section>
+    </aside>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="celebration" id="celebration" aria-hidden="true"></div>
+
+  <script defer src="script.js"></script>
+</body>
+
+</html>
